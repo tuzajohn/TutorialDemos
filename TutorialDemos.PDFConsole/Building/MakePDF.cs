@@ -23,10 +23,27 @@ public class MakePDF
 
         path = Path.Combine(path, "demo.pdf");
         PdfWriter writer = new(path);
+
+        BuildPdfModule(writer);
+    }
+
+
+
+    public static void InMemoryBuiltPDF()
+    {
+        var stream = new MemoryStream();
+        var writer = new PdfWriter(stream);
+        var result = BuildPdfModule(writer, stream);
+
+        var tt = result;
+    }
+
+    private static byte[]? BuildPdfModule(PdfWriter writer, MemoryStream stream = null)
+    {
         PdfDocument pdf = new(writer);
         Document document = new(pdf);
 
-        Paragraph newline = new Paragraph(new Text("\n"));
+        Paragraph newline = new(new Text("\n"));
 
         Paragraph header = new Paragraph("HEADER")
            .SetTextAlignment(TextAlignment.CENTER)
@@ -48,8 +65,6 @@ public class MakePDF
         var student = new Student();
 
         var counter = student.GetPropertiesCount(out List<System.Reflection.PropertyInfo> properties);
-
-
 
         Table table = new(counter, true);
         table.SetMarginTop(10);
@@ -120,5 +135,11 @@ public class MakePDF
         document.Add(hyperLink);
 
         document.Close();
+
+
+        if (stream != null)
+            return stream.ToArray();
+
+        return null;
     }
 }
