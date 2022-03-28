@@ -35,7 +35,7 @@ public class MakePDF
         var writer = new PdfWriter(stream);
         var result = BuildPdfModule(writer, stream);
 
-        var tt = result;
+        Utilities.SendEmail("Testing attachment", result);
     }
 
     private static byte[]? BuildPdfModule(PdfWriter writer, MemoryStream stream = null)

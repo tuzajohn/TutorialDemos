@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.Net.Mail;
+using System.Net.Mime;
+using System.Reflection;
 
 namespace TutorialDemos.PDFConsole.Building;
 
@@ -21,5 +23,38 @@ public static class Utilities
             .ToList();
 
         return properties.Count;
+    }
+
+
+    public static void SendEmail(string message, byte[] attachment)
+    {
+        using MailMessage emailMessage = new();
+        emailMessage.From = new MailAddress("****", "Dummy");
+        emailMessage.To.Add(new MailAddress("test@gmail.com", "Dummy"));
+        emailMessage.Subject = "SUBJECT";
+        emailMessage.Body = message;
+        emailMessage.Priority = MailPriority.Normal;
+
+
+        Stream stream = new MemoryStream(attachment);
+
+        // Create  the file attachment for this email message.
+        Attachment data = new Attachment(stream, MediaTypeNames.Application.Pdf);
+        // Add time stamp information for the file.
+        ContentDisposition disposition = data.ContentDisposition;
+        disposition.CreationDate = DateTime.UtcNow;
+        disposition.ModificationDate = DateTime.UtcNow;
+        disposition.ReadDate = DateTime.UtcNow;
+        disposition.FileName = "Test.pdf";
+
+
+        emailMessage.Attachments.Add(data);
+
+
+        using SmtpClient MailClient = new("smtp.dummy.com", 587);
+
+        MailClient.EnableSsl = true;
+        MailClient.Credentials = new System.Net.NetworkCredential("fsdf", "*****");
+        MailClient.Send(emailMessage);
     }
 }
