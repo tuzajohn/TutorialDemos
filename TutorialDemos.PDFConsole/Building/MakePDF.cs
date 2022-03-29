@@ -136,7 +136,6 @@ public class MakePDF
 
         document.Close();
 
-
         if (stream != null)
             return stream.ToArray();
 

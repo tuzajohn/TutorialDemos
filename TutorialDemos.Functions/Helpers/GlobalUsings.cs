@@ -1,0 +1,9 @@
+﻿global using Microsoft.Azure.Functions.Extensions.DependencyInjection;
+global using Microsoft.Extensions.DependencyInjection;
+global using Newtonsoft.Json;
+global using Serilog;
+global using Serilog.Core;
+global using Serilog.Events;
+global using System;
+global using System.IO;
+global using System.Threading.Tasks;
