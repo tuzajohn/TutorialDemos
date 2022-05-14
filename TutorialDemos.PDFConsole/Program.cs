@@ -2,6 +2,12 @@
 using TutorialDemos.PDFConsole.Building;
 
 MakePDF.Build();
-MakePDF.InMemoryBuiltPDF();
+//MakePDF.BuildFromdynamicData();
+//MakePDF.InMemoryBuiltPDF();
 
-Console.WriteLine("Hello, World!");
+
+//using TutorialDemos.PDFConsole.Models;
+
+//var check = new PhoneNumberCheckViewModel("UG", "256745958670");
+
+//Console.WriteLine("Checking number: " + check.Valid);

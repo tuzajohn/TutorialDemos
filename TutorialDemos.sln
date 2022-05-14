@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{E78CA0D2-9F7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Functions", "Functions", "{D131FE71-4887-4E4B-B078-95F5069B6F65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TutorialDemos.Functions", "TutorialDemos.Functions\TutorialDemos.Functions.csproj", "{2725CA95-85C7-43F9-B51E-ED7276089E95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TutorialDemos.Functions", "TutorialDemos.Functions\TutorialDemos.Functions.csproj", "{2725CA95-85C7-43F9-B51E-ED7276089E95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{049FB667-89E4-4209-B0E5-82EEC1945678}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
